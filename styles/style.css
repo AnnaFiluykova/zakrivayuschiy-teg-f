@@ -1,16 +1,327 @@
-/* Здесь вы напишете основную часть стилей страницы.
-
-Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
-✦ like-icon — для svg-иконки анимированного сердца
-✦ card__like-button — для кнопки Like рядом с иконкой
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
-✦ button__text — для обозначения текстового элемента внутри кнопки
-
-*/
-
 .page {
+  font-family: var(--main-font), sans-serif;
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-image: var(--bg-image);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px 0;
+}
+
+@supports (font-variation-settings: normal) {
+  body {
+    font-family: ScienceGothic-Variable, sans-serif;
+  }
+}
+
+.header {
+  width: var(--block-width);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  padding: 122px 0;
+  margin-bottom: 100px;
+}
+
+.header__title {
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+}
+
+.header__description {
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+.card {
+  width: var(--block-width);
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+}
+
+.card__title {
+  font-family: var(--variable-font), sans-serif;
+  font-size: 18px;
+  font-weight: var(--title-font-weight);
+  padding: 4px 10px;
+}
+
+.card__image {
+  position: relative;
+}
+
+.image {
+  width: 100%;
+  max-height: 696px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.tabi {
+  filter: grayscale(1) brightness(0.5);
+}
+
+.goose {
+  filter: hue-rotate(-20deg);
+}
+
+.crimea {
+  filter: saturate(0.9);
+}
+
+.feather {
+  filter: opacity(0.8);
+}
+
+.dogs {
+  filter: contrast(0.9);
+}
+
+.fashion-show {
+  filter: invert(0.2);
+}
+
+.dress {
+  filter: blur(1px);
+}
+
+.bag {
+  filter: sepia(0.5);
+}
+
+.label {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  opacity: 0.5;
+  mix-blend-mode: hard-light;
+  -webkit-text-stroke: 1px var(--border-label-color);
+}
+
+@supports (text-stroke: 1px var(--border-label-color)) {
+  span {
+    text-stroke: 1px var(--border-label-color);
+  }
+}
+
+.card__text {
+  font-family: var(--variable-font), sans-serif;
+  font-size: 18px;
+  font-weight: var(--text-font-weight);
+  display: grid;
+  gap: 25px;
+  margin: 25px;
+}
+
+.card__buttons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  margin: 0 25px 25px;
+}
+
+.card__icon-button {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+.contour {
+  transition: fill 0.1s linear 0s;
+}
+
+.main-body {
+  transition: fill 0.3s linear 0s;
+}
+
+.core {
+  transition: fill 0.3s linear 0.03s;
+}
+
+.sparks {
+  opacity: 0;
+}
+
+.like-icon:hover {
+  .core {
+    fill: var(--contour-color);
+    transition: fill 0.3s linear;
+  }
+
+  .main-body {
+    fill: var(--contour-color);
+    transition: fill 0.3s linear 0.05s;
+  }
+}
+
+.like-icon:active {
+  .core, .main-body {
+    fill: var(--animation-fill-color);
+  }
+}
+
+.like-icon.is-liked {
+  .contour {
+    fill: var(--animation-fill-color);
+    transition: fill 0.3s linear 0.06s;
+  }
+
+  .core {
+    fill: var(--animation-fill-color);
+    transition: fill 0.3s linear 0s;
+  }
+
+  .main-body {
+    fill: var(--animation-fill-color);
+    transition: fill 0.3s linear 0.05s;
+  }
+
+  .sparks {
+    animation: sparks 0.3s 1 ease-in;
+  }
+
+  .heart {
+    transform-origin: center;
+    animation: zoom 0.3s 1 ease-in 0.1s;
+  }
+}
+
+.button {
+  position: relative;
+  font-size: 14px;
+  line-height: 90%;
+  padding: 12px 37px;
+  border: 2px solid var(--border-color);
+  background-color: var(--bg-color);
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.button_text {
+  color: var(--text-color-white);
+  mix-blend-mode: difference;
+}
+
+.footer__button-icon {
+  height: 21px;
+  width: 21px;
+  color: var(--text-color-white);
+  mix-blend-mode: difference;
+}
+
+.button::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: var(--accent-color);
+  transition: width 0.5s ease-in-out;
+  transform: scale(1);
+}
+
+.button:is(:hover)::after {
+  width: 100%;
+}
+
+.button:is(:hover).button_text, .button:is(:hover).footer__button-icon {
+  position: absolute;
+  z-index: 2;
+  color: var(--text-color-black);
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:focus-visible {
+  box-shadow: 2px 2px 0 var(--accent-color);
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer__button {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  line-height: 90%;
+}
+
+.dialog {
+  position: fixed;
+  display: none;
+  gap: 30px;
+  place-items: center;
+  border: 2px solid var(--border-color);
+  padding: 30px;
+  background-color: var(--bg-color);
+  max-width: 353px;
+  max-height: 191px;
+}
+
+.dialog[open] {
+  display: grid;
+}
+
+.dialog[open]::backdrop {
+  backdrop-filter: opacity(0.75);
+}
+
+.dialog__content {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  font-size: 14px;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+
+.dialog-icon {
+  flex-shrink: 0;
+  width: 39px;
+  height: 39px;
+  color: var(--text-color-black);
+}
+
+.dialog__button {
+  width: 100%;
+}
+
+@media (width <= 375px) {
+  .header {
+    padding: 122px 16px;
+  }
+
+  .footer__button {
+    flex-direction: column;
+  }
+
+  .footer__button-icon {
+    height: 28px;
+    width: 28px;
+  }
 }
