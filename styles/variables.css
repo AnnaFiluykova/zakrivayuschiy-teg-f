@@ -9,6 +9,7 @@
               linear-gradient(180deg, #E7E7E7 0%, #1A1A1A 100%);
   --bg-color: #FFFFFF;
   --block-width: clamp(375px, 100%, 700px);
+  --image-height: clamp(371px, 100%, 696px);
   --border-color: #000000;
   --border-label-color: #FFFFFF;
   --accent-color: #000000;
