@@ -8,8 +8,7 @@
               repeating-linear-gradient(to bottom, #d3d3d3, transparent 2px),
               linear-gradient(180deg, #E7E7E7 0%, #1A1A1A 100%);
   --bg-color: #FFFFFF;
-  --block-width: clamp(375px, 100%, 700px);
-  --image-height: clamp(371px, 100%, 696px);
+  --block-width: clamp(23.4375rem, 16.2852rem + 30.5164vw, 43.75rem);
   --border-color: #000000;
   --border-label-color: #FFFFFF;
   --accent-color: #000000;

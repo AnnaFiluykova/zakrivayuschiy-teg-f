@@ -12,12 +12,6 @@
   padding: 100px 0;
 }
 
-@supports (font-variation-settings: normal) {
-  body {
-    font-family: ScienceGothic-Variable, sans-serif;
-  }
-}
-
 .header {
   width: var(--block-width);
   display: flex;
@@ -55,7 +49,7 @@
 .card__title {
   font-family: var(--variable-font), sans-serif;
   font-size: 18px;
-  font-weight: var(--title-font-weight);
+  font-variation-settings: 'wght' var(--title-font-weight);
   padding: 4px 10px;
 }
 
@@ -122,7 +116,7 @@
 .card__text {
   font-family: var(--variable-font), sans-serif;
   font-size: 18px;
-  font-weight: var(--text-font-weight);
+  font-variation-settings: 'wght' var(--text-font-weight);
   display: grid;
   gap: 25px;
   margin: 25px;
